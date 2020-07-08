@@ -1,24 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
+import Tasks from './pages/tasks/tasks';
+import Calendar from './pages/Calendar/calendar';
+import MealPlan from './pages/Meal-Plan/meal-plan';
+import Workouts from './pages/Workouts/workouts';
+import Homepage from './pages/homepage/Homepage';
+import Modular from './components/Modular/Modular';
+import Header from './components/header/Header';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <Homepage />
+        </Route>
+        <Route exact path='/tasks'>
+          <Tasks />
+        </Route>
+        <Route exact path='/calendar'>
+          <Calendar />
+        </Route>
+        <Route exact path='/workouts'>
+          <Workouts />
+        </Route>
+        <Route exact path='/mealplan'>
+          <MealPlan />
+        </Route>
+
+        <Route path='/modo'>
+          <Modular>
+            <div>Hi</div>
+          </Modular>
+        </Route>
+        <Route path='/'>
+          <div>404</div>
+        </Route>
+      </Switch>
     </div>
   );
 }
