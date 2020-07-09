@@ -2,27 +2,16 @@ import React, { useState, useEffect } from 'react';
 import TaskItem from './taskItems';
 import AddTask from './addTask';
 import Modular from '../../components/Modular/Modular';
+import Workouts from '../Workouts/workouts';
 
 const Tasks = () => {
   const [tasks, setTasks] = useState([
-    { id: 0, title: 'Workout', completed: false },
+    { id: 0, title: 'Workout', completed: false, readOnly: true },
     { id: 1, title: 'Workout2', completed: false },
     { id: 2, title: 'Workout3', completed: false },
   ]);
 
   const [display, setDisplay] = useState(false);
-
-  //Toggle Complete
-  // const check = (id) => {
-  // setTasks({
-  //   tasks: tasks.map((task) => {
-  //     if (task.id === id) {
-  //       task.completed = !task.completed;
-  //     }
-  //     return task;
-  //   }),
-  // });
-  // };
 
   const editButton = (id, newTitle) => {
     setTasks((prev) => {
@@ -67,7 +56,6 @@ const Tasks = () => {
   return (
     <div>
       <h1>Tasks To Do</h1>
-
       {tasks.map((task, i) => {
         return (
           <TaskItem
@@ -76,17 +64,15 @@ const Tasks = () => {
             check={check}
             delTask={delTask}
             editButton={editButton}
+            showModular={showModular}
           />
         );
       })}
-
       <AddTask addTask={addTask} />
-
-      <button onClick={showModular}>Modal</button>
 
       {display && (
         <Modular showModular={showModular}>
-          <div>BOO</div>
+          <Workouts />
         </Modular>
       )}
     </div>

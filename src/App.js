@@ -7,7 +7,13 @@ import Workouts from './pages/Workouts/workouts';
 import Homepage from './pages/homepage/Homepage';
 import Modular from './components/Modular/Modular';
 import Header from './components/header/Header';
+import Exercises from './pages/Exercises/Exercises';
+import SignIn from './pages/Sign-In/Sign-In';
+import SignUp from './pages/Sign-up/Sign-up';
 import './App.css';
+require('dotenv').config();
+
+console.log(process.env.REACT_APP_FIREBASE_API_KEY);
 
 function App() {
   return (
@@ -26,14 +32,17 @@ function App() {
         <Route exact path='/workouts'>
           <Workouts />
         </Route>
+        <Route exact path='/workouts/:bodyPart'>
+          <Exercises />
+        </Route>
         <Route exact path='/mealplan'>
           <MealPlan />
         </Route>
-
-        <Route path='/modo'>
-          <Modular>
-            <div>Hi</div>
-          </Modular>
+        <Route exact path='/signin'>
+          <SignIn />
+        </Route>
+        <Route exact path='/signup'>
+          <SignUp />
         </Route>
         <Route path='/'>
           <div>404</div>

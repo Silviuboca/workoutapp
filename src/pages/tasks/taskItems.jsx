@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Workouts from '../Workouts/workouts';
 
 const TaskItem = (props) => {
   const { id, title } = props.task;
@@ -22,7 +23,13 @@ const TaskItem = (props) => {
     <div>
       <span>
         <input type='checkbox' onChange={handleCheck} />
-        <input value={updatedTitle} onChange={handleEdit} />
+
+        {props.task.readOnly ? (
+          <span onClick={props.showModular}>{title}</span>
+        ) : (
+          <input value={updatedTitle} onChange={handleEdit} />
+        )}
+
         <button onClick={handleDelete}>x</button>
       </span>
     </div>
