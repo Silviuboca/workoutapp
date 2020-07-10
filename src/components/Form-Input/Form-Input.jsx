@@ -1,8 +1,15 @@
 import React from 'react';
 
-const FormInput = ({ handleChange, type, name, placeholder }) => {
-  return (
-    <div>
+const FormInput = ({ handleChange, type, name, placeholder, useTextArea }) => (
+  <div>
+    {useTextArea ? (
+      <textarea
+        name={name}
+        onChange={handleChange}
+        placeholder={placeholder}
+        required
+      />
+    ) : (
       <input
         type={type}
         name={name}
@@ -10,8 +17,8 @@ const FormInput = ({ handleChange, type, name, placeholder }) => {
         placeholder={placeholder}
         required
       />
-    </div>
-  );
-};
+    )}
+  </div>
+);
 
 export default FormInput;

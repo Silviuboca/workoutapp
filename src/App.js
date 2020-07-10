@@ -2,18 +2,16 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Tasks from './pages/tasks/tasks';
 import Calendar from './pages/Calendar/calendar';
-import MealPlan from './pages/Meal-Plan/meal-plan';
+import MealPlan from './pages/Meal-Plan/Meal-Plan';
 import Workouts from './pages/Workouts/workouts';
 import Homepage from './pages/homepage/Homepage';
 import Modular from './components/Modular/Modular';
-import Header from './components/header/Header';
+import Header from './components/Header/Header';
 import Exercises from './pages/Exercises/Exercises';
 import SignIn from './pages/Sign-In/Sign-In';
 import SignUp from './pages/Sign-up/Sign-up';
+import ContactForm from './pages/Contact/ContactForm';
 import './App.css';
-require('dotenv').config();
-
-console.log(process.env.REACT_APP_FIREBASE_API_KEY);
 
 function App() {
   return (
@@ -43,6 +41,9 @@ function App() {
         </Route>
         <Route exact path='/signup'>
           <SignUp />
+        </Route>
+        <Route exact path='/contact'>
+          <ContactForm />
         </Route>
         <Route path='/'>
           <div>404</div>
