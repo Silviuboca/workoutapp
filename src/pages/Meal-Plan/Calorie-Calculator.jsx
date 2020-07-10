@@ -7,8 +7,8 @@ const CalorieCalculator = () => {
     height: '',
     weight: '',
     gender: 'male',
-    bodyFat: '10',
-    useBodyFat: false,
+    bodyFat: '',
+    useBodyFat: 'true',
   });
   const [outputBMI, setOutputBMI] = useState({ BMI: '' });
   const [outputBMR, setOutputBMR] = useState({ BMR: '' });
@@ -25,7 +25,7 @@ const CalorieCalculator = () => {
       bodyWeight = 'Underweight';
     }
     if (bmi >= 18.5 && bmi < 24.9) {
-      bodyWeight = 'Normal weight';
+      bodyWeight = 'Normal Weight';
     }
     if (bmi >= 25 && bmi < 29.9) {
       bodyWeight = 'Overweight';
@@ -34,6 +34,8 @@ const CalorieCalculator = () => {
       bodyWeight = 'Obesity';
     }
     setOutputBMI({ BMI: bodyWeight });
+
+    return bodyWeight;
   };
 
   // no bodyfat (metric)
@@ -64,13 +66,12 @@ const CalorieCalculator = () => {
     return result;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setDisplayBFInput(false);
-    getBMI();
+    const bodyWeight = getBMI();
 
-    if (outputBMI.BMI === 'Underweight' || outputBMI.BMI === 'Normal Weight') {
+    if (bodyWeight === 'Underweight' || bodyWeight === 'Normal Weight') {
       setDisplayBFInput(true);
       console.log('displayBFInput');
     } else {
@@ -94,20 +95,23 @@ const CalorieCalculator = () => {
             type='number'
             placeholder='age'
             handleChange={handleChange}
+            value={inputs.age}
           />
           <FormInput
             name='height'
             type='number'
             placeholder='height'
             handleChange={handleChange}
+            value={inputs.height}
           />
           <FormInput
             name='weight'
             placeholder='weight'
             type='number'
             handleChange={handleChange}
+            value={inputs.weight}
           />
-          <select name='gender' handleChange={handleChange}>
+          <select name='gender' onChange={handleChange}>
             <option value='male'>Male</option>
             <option value='female'>Female</option>
           </select>
@@ -116,14 +120,15 @@ const CalorieCalculator = () => {
       ) : (
         <form>
           <p>Do you want to use Body Fat?</p>
-          <select name='useBodyFat' handleChange={handleChange}>
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
+          <select name='useBodyFat' onChange={handleChange}>
+            <option value='true'>Yes</option>
+            <option value='false'>No</option>
           </select>
-          {inputs.useBodyFat && (
+          {inputs.useBodyFat==='true' && (
             <FormInput
               placeholder='enter body fat percentage'
               handleChange={handleChange}
+              value={inputs.bodyFat}
             />
           )}
         </form>

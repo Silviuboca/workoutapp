@@ -1,12 +1,13 @@
 import React from 'react';
 
-const FormInput = ({ handleChange, type, name, placeholder, useTextArea }) => (
+const FormInput = ({ value, handleChange, type, name, placeholder, useTextArea }) => (
   <div>
     {useTextArea ? (
       <textarea
         name={name}
         onChange={handleChange}
         placeholder={placeholder}
+        value={value}
         required
       />
     ) : (
@@ -15,6 +16,7 @@ const FormInput = ({ handleChange, type, name, placeholder, useTextArea }) => (
         name={name}
         onChange={handleChange}
         placeholder={placeholder}
+        value={value}
         required
       />
     )}
