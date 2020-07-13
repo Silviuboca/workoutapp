@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import DateTracker from 'react-calendar';
-import Modular from '../../components/Modular/Modular';
 import 'react-calendar/dist/Calendar.css';
+import { ModalContext } from '../../components/Contexts/modal.context';
 
 const Calendar = () => {
-  const [display, setDisplay] = useState(false);
+  let { handleModal } = useContext(ModalContext);
 
-  const showModular = () => {
-    setDisplay((prev) => {
-      return !prev;
-    });
+  const handleChange = (date) => {
+    console.log(date);
   };
 
   return (
     <div>
       <h1>Calendar</h1>
-      <DateTracker />
+      <DateTracker onChange={handleChange} />
     </div>
   );
 };

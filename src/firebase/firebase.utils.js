@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 export const config = {
-  apiKey: null,
+  apiKey: 'AIzaSyD5WHdXYdsH5hdhSfgdjJfipcipDjKzaPo',
   authDomain: 'workoutapp-eb5ab.firebaseapp.com',
   databaseURL: 'https://workoutapp-eb5ab.firebaseio.com',
   projectId: 'workoutapp-eb5ab',

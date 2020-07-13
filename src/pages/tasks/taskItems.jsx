@@ -25,7 +25,7 @@ const TaskItem = (props) => {
         <input type='checkbox' onChange={handleCheck} />
 
         {props.task.readOnly ? (
-          <span onClick={props.showModular}>{title}</span>
+          <span onClick={props.handleModal}>{title}</span>
         ) : (
           <input value={updatedTitle} onChange={handleEdit} />
         )}

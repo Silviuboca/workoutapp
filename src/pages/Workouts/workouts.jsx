@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import BODYPART_DATA from '../../components/BodyPart/BodyPart.data';
+import { ModalProvider } from '../../components/Contexts/modal.context';
 const Workouts = () => {
   const history = useHistory();
 

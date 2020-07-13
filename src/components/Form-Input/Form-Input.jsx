@@ -1,6 +1,13 @@
 import React from 'react';
 
-const FormInput = ({ value, handleChange, type, name, placeholder, useTextArea }) => (
+const FormInput = ({
+  value,
+  handleChange,
+  type,
+  name,
+  placeholder,
+  useTextArea,
+}) => (
   <div>
     {useTextArea ? (
       <textarea
