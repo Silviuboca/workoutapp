@@ -1,60 +1,55 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Tasks from './pages/tasks/tasks';
-import Calendar from './pages/Calendar/calendar';
-import MealPlan from './pages/Meal-Plan/meal-plan';
-import Workouts from './pages/Workouts/workouts';
-import Homepage from './pages/homepage/Homepage';
+import TaskManager from './pages/TaskPage/TaskManager';
+import Calendar from './pages/Calendar/CalendarPage';
+import MealPlan from './pages/MealPlan/mealPlan';
+import Workouts from './pages/Workouts/WorkoutPage';
+import Homepage from './pages/Homepage/Homepage';
 import Header from './components/Header/Header';
-import Exercises from './pages/Exercises/Exercises';
-import SignIn from './pages/Sign-In/Sign-In';
-import SignUp from './pages/Sign-up/Sign-up';
+// import Exercises from '../';
+import LogIn from './pages/LogIn/LogIn';
+import SignUp from './pages/SignUp/SignUp';
 import ContactForm from './pages/Contact/ContactForm';
-import TaskProvider from './components/Contexts/tasks.context';
-import { ModalProvider } from './components/Contexts/modal.context';
 import './App.css';
 
 function App() {
   return (
-    <ModalProvider>
-      <TaskProvider>
-        <div className='App'>
-          <Header />
-          <Switch>
-            <Route exact path='/'>
-              <Homepage />
-            </Route>
-            <Route exact path='/tasks'>
-              <Tasks />
-            </Route>
-            <Route exact path='/calendar'>
-              <Calendar />
-            </Route>
-            <Route exact path='/workouts'>
-              <Workouts />
-            </Route>
-            <Route exact path='/workouts/:bodyPart'>
-              <Exercises />
-            </Route>
-            <Route exact path='/mealplan'>
-              <MealPlan />
-            </Route>
-            <Route exact path='/signin'>
-              <SignIn />
-            </Route>
-            <Route exact path='/signup'>
-              <SignUp />
-            </Route>
-            <Route exact path='/contact'>
-              <ContactForm />
-            </Route>
-            <Route path='/'>
-              <div>404</div>
-            </Route>
-          </Switch>
-        </div>
-      </TaskProvider>
-    </ModalProvider>
+    <div className='App'>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <Homepage />
+        </Route>
+        <Route exact path='/tasks'>
+          <TaskManager />
+        </Route>
+        <Route exact path='/calendar'>
+          <Calendar />
+        </Route>
+        <Route exact path='/workouts'>
+          <Workouts />
+        </Route>
+        {/*<Route exact path='/workouts/:bodyPart'>
+          <Exercises />
+        </Route>
+  */}
+        <Route exact path='/mealplan'>
+          <MealPlan />
+        </Route>
+        <Route exact path='/login'>
+          <LogIn />
+        </Route>
+        <Route exact path='/signup'>
+          <SignUp />
+        </Route>
+        <Route exact path='/contact'>
+          <ContactForm />
+        </Route>
+        <Route path='/'>
+          <div>404</div>
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

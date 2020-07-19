@@ -1,11 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import DateTracker from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { ModalContext } from '../../components/Contexts/modal.context';
 
-const Calendar = () => {
-  let { handleModal } = useContext(ModalContext);
-
+const CalendarPage = () => {
   const handleChange = (date) => {
     console.log(date);
   };
@@ -18,4 +15,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default CalendarPage;

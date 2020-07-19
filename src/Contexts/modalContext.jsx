@@ -1,8 +1,9 @@
 import React from 'react';
 import useModal from '../Hooks/useModal';
-import Modal from '../Modal/Modal';
+import Modal from '../components/Modal/Modal';
 
 let ModalContext;
+
 let { Provider } = (ModalContext = React.createContext());
 
 let ModalProvider = ({ children }) => {

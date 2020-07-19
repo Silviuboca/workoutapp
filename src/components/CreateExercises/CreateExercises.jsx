@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import BODYPART_DATA from '../../components/BodyPart/BodyPart.data';
+import BODYPART_DATA from '../BodyPartData/BodyPartData';
 
 const Exercises = () => {
   const { bodyPart } = useParams();

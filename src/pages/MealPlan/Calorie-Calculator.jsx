@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import FormInput from '../../components/Form-Input/Form-Input';
-import useForm from '../../components/Hooks/useForm';
+import useForm from '../../Hooks/useForm';
 
 const CalorieCalculator = () => {
   const [inputs, handleChange] = useForm({

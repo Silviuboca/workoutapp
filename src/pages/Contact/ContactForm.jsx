@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormInput from '../../components/Form-Input/Form-Input';
+import FormInput from '../../components/FormInput/FormInput';
 
 const ContactForm = () => {
   const [input, setInput] = useState({
